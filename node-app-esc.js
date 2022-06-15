@@ -23,13 +23,30 @@ app.use('/img', express.static(__dirname + 'public/img'))
 
 
 app.get('', (req, res) => {
-    // res.sendFile(__dirname + '/views/index.html')
     res.sendFile(path.join(__dirname,'/views/index.html'))
+})
+
+app.get('/index', (req, res) => {
+    res.sendFile(path.join(__dirname,'/views/index.html'))
+})
+
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname,'/views/contact.html'))
+})
+
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname,'/views/about.html'))
 })
   
 // Handling GET /hello request
 app.get("/hello", (req, res, next) => {
     res.send("This is the hello response");
+})
+
+// Handling non matching request from the client
+app.use((req, res, next) => {
+    res.status(404).send(
+       "<h1>Page not found on the server</h1>")
 })
   
 // Server setup
