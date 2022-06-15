@@ -1,4 +1,4 @@
-const myserverurl = 'http://localhost:3000';
+const myserverurl = 'https://esc-ce5-node-app.herokuapp.com';
 
 const profileButton = document.getElementById('github');
 const homeAnchor = document.getElementById('home');
