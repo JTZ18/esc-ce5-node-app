@@ -1,4 +1,4 @@
-const myserverurl = 'https://localhost:3000';
+const myserverurl = 'http://localhost:3000';
 
 const profileButton = document.getElementById('github');
 const homeAnchor = document.getElementById('home');
