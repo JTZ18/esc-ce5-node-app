@@ -50,45 +50,6 @@ app.use((req, res, next) => {
 })
   
 // Server setup
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000, () => {
     console.log(`Server running at http://${"localhost"}:${3000}/`)
 })
-
-
-// const http = require('http');
-// const fs = require('fs');
-// const url = require('url');
-// const path = require('path');
-
-// const hostname = '127.0.0.1';
-// const port = 3000;
-
-// const server = http.createServer(function(request, response) {
-//     var uri = url.parse(request.url).pathname;
-//     var filename = path.join(process.cwd(), uri);
-//     fs.existsSync(filename, function(exists) {
-//         if (!exists) {
-//             response.sendHeader(404, {"Content-Type": "text/plain"});
-//             response.write("404 Not Found\n");
-//             response.close();
-//             return;
-//         }
-
-//         fs.readFile(filename, "binary", function(err, file) {
-//             if (err) {
-//                 response.sendHeader(500, {"Content-Type": "text/plain"});
-//                 response.write(err + "\n");
-//                 response.close();
-//                 return;
-//             }
-
-//             response.sendHeader(200);
-//             response.write(file, "binary");
-//             response.close();
-//         });  
-//     });  
-// })
-
-// server.listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
