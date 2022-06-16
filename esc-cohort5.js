@@ -12,30 +12,17 @@ function gcd(a, b) {
 // of the CSV file, itself stored as an array.
 
 function parseCSV(filename) {
-    // const stream = fs.createReadStream(filename);
-    // const rl = readline.createInterface({ input: stream });
-    // let data = [];
-    
-    // rl.on("line", (row) => {
-    //     data.push(row.split(","));
-    // });
-    
-    // rl.on("close", () => {
-    //     //console.log(data);
-    // });
-
-    // return data;
+    const data = fs.readFileSync(filename, 'utf8', function (err, data) {});
     let output = [];
-    fs.readFileSync(filename, 'utf8', function (err, data) {
-            /* parse data */
-            let lines = data.split('\n');
-            lines.map(line => {
-                let row = line.split(',');
-                output.push(row);
-            });
-        });
+    /* parse data */
+    let lines = data.split('\n');
+    lines.map(line => {
+        let row = line.split(',');
+        // remove "/r" from the end of the last element in row
+        row[row.length - 1] = row[row.length - 1].slice(0, -1);
+        output.push(row);
+    });
     return output;
-
 }
 
 function quickSort(arr) {
@@ -55,8 +42,17 @@ function quickSort(arr) {
     return quickSort(left).concat(pivot, quickSort(right));
 }
 
-//console.log(gcd(100, 10))
+console.log('================================Q1================================');
+console.log(gcd(100, 10))
+console.log('===================================================================');
+console.log('\n');
 
+console.log('================================Q2================================');
 console.log(parseCSV('csvfile.csv'))
+console.log('===================================================================');
+console.log('\n');
 
-console.log(quickSort([1, 3, 5, 2, 4, 6]))
+console.log('================================Q3================================');
+console.log(quickSort([1, 3, 5, 2, 4, 6]));
+console.log('===================================================================');
+console.log('\n');
