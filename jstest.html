@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>Test page for JS</title>
+	<script>
+	function gcd(a, b) {
+		if (b == 0) {
+			return a;
+		}
+		return gcd(b, a % b);
+	}
+
+	function get_gcd(){
+		let a = document.getElementById("aval").value;
+		let b = document.getElementById("bval").value;
+		let r = gcd(a,b);
+		document.getElementById("result").innerHTML = r;
+
+	}
+	</script>
+</head>
+<body>
+	<h1>Test your GCD Function</h1>
+	<form>
+		Value for a: <input type="number" id="aval"><br>
+		Value for b: <input type="number" id="bval"><br>
+		<input type="button" value="Get GCD" onclick="get_gcd()">
+
+	</form>
+	<p>Result: <span id="result"></span></p>
+
+</body>
+</html>
